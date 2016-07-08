@@ -27,6 +27,7 @@ Find the sum of all the numbers that can be written as the sum of fifth powers o
 public class DigitFifthPowers {
 
 	public static void main(String[] args) {
+		long start = System.currentTimeMillis();
 		int res = 0;
 		for(int i=2;i<=354294;i++){
 			String t = i+"";
@@ -39,6 +40,8 @@ public class DigitFifthPowers {
 				res += i;
 			}
 		}
-		System.out.println(res);
+		System.out.println("result: "+res);
+		long end = System.currentTimeMillis();
+		System.out.println("used: "+(end - start)+"ms");
 	}
 }
