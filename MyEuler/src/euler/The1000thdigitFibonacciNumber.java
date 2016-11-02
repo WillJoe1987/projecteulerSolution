@@ -1,6 +1,6 @@
 package euler;
 
-import com.ibm.icu.math.BigDecimal;
+import java.math.BigDecimal;
 
 
 /**
@@ -8,7 +8,7 @@ import com.ibm.icu.math.BigDecimal;
 Problem 25
 The Fibonacci sequence is defined by the recurrence relation:
 
-Fn = Fn−1 + Fn−2, where F1 = 1 and F2 = 1.
+Fn = Fn鈭� + Fn鈭�, where F1 = 1 and F2 = 1.
 Hence the first 12 terms will be:
 
 F1 = 1
