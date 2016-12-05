@@ -11,6 +11,25 @@ What is the 10 001st prime number?
  */
 public class PrimeNumber10001th {
 	
+	public boolean isPrime(long num){
+		if(num>1){
+			/**
+			 * 这里num可以做一次开方再循环，降低逻辑复杂度。
+			 * 不开方的运行结果：
+			 * 	104743
+			 *	2249
+			 * 开方后的运行结果：
+			 * 
+			 */
+			long sqrt = (long) Math.floor(Math.sqrt(num)+1);
+			for(long i=2;i<sqrt;i++){
+				if(num % i == 0) return false;
+				else continue;
+			}
+			return true;
+		}
+		return false;
+	}
 	
 	public boolean isPrime(int num){
 		if(num>1){
@@ -35,6 +54,19 @@ public class PrimeNumber10001th {
 	public int getOrderPrime(int order){
 		int count = 0;
 		int number = 2;
+		while(count<order){
+			if(this.isPrime(number))
+				count++;
+			number++;
+		}
+		number -- ;
+		return number;
+	}
+	
+	
+	public long getOrderPrime(long order){
+		int count = 0;
+		long number = 2;
 		while(count<order){
 			if(this.isPrime(number))
 				count++;
