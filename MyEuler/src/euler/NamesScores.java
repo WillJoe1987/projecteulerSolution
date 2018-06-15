@@ -50,6 +50,10 @@ public class NamesScores {
 		}
 	}
 	
+	public NameSequence getNs(){
+		return this.ns;
+	}
+	
 	public int readAllScores(){
 		return this.ns.getAllScores();
 	}
@@ -58,6 +62,10 @@ public class NamesScores {
 	public class NameSequence{
 		
 		private List<Name> names = new ArrayList<Name>();
+		
+		public int getSize(){
+			return names.size();
+		}
 		
 		public int insertName(Name name){
 			int index = getOrders(name);
@@ -86,6 +94,11 @@ public class NamesScores {
 			return (i+1)*this.names.get(i).getWorth();
 		}
 		
+		public int getOrderedScoreByIndex(int i){
+			if(i>=this.names.size()) return -1;
+			return this.names.get(i).getWorth();
+		}
+		
 		public int getAllScores(){
 			int result = 0;
 			for(int i=0;i<this.names.size();i++){
@@ -108,6 +121,7 @@ public class NamesScores {
 	public class Name{
 		
 		int[] nameChar;
+		String nameStr;
 		
 		public Name(String name){
 			String upper = name.toUpperCase();
@@ -116,6 +130,7 @@ public class NamesScores {
 			for(int i=0;i<len;i++){
 				this.nameChar[i] = upper.charAt(i) - 64;
 			}
+			this.nameStr = name;
 		}
 
 		public int compareTo(Name name, int fetch){
